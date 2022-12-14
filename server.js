@@ -27,7 +27,7 @@ const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/midd
 // Configurando mongoose com a dotenv:
 mongoose.set('strictQuery', true);
 
-mongoose.connect(process.env.CONNECTIONSTRING)
+mongoose.connect('mongodb+srv://iarlenreis:brasil22@cursojs01.ulvnj9i.mongodb.net/AGENDA?retryWrites=true&w=majority')
     .then(() => {
         app.emit('pronto');
     })
@@ -42,7 +42,7 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 // Configurando session e criando colletions da session no banco de dados:
 const sessionOptions = session({
     secret: 'sou secreto',
-    store: MongoStore.create({mongoUrl: process.env.CONNECTIONSTRING}),
+    store: MongoStore.create({mongoUrl: 'mongodb+srv://iarlenreis:brasil22@cursojs01.ulvnj9i.mongodb.net/AGENDA?retryWrites=true&w=majority'}),
     resave: false,
     saveUninitialized: false,
     cookie: {
