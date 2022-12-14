@@ -1,0 +1,40 @@
+
+<h1 class="text-center">
+    Agenda
+    <p class="text-center lead">
+        Seus contatos estão abaixo 
+    </p>
+</h1>
+{{#if erros}}
+        <div class="alert alert-danger text-center">{{#each erros }}{{this}} <br>{{/each}}</div>
+    {{else}}
+    {{/if}}
+    {{#if success}}
+        <div class="alert alert-success text-center">{{#each success }}{{this}} <br>{{/each}}</div>
+    {{else}}
+{{/if}}
+
+{{#if contatos}}
+{{#each contatos}}
+    <table class="table my-3">
+        <tr>
+            <td>{{this.nome}}</td>
+            <td>{{this.sobrenome}}</td>
+            <td>{{this.telefone}}</td>
+            <td>{{this.email}}</td>
+            <td><a href="/contato/index/{{this._id}}">Editar</a></td>
+            <td><a class="deletarContato" href="/contato/delete/{{this._id}}">Deletar</a></td>
+        </tr>
+    </table>
+{{/each}}
+{{else}}
+    <table class="table my-3">
+        <tr>
+            <td>Nenhum</td>
+            <td>contato</td>
+            <td>na sua</td>
+            <td>agenda</td>
+        </tr>
+    </table>
+{{/if}}
+</div>
